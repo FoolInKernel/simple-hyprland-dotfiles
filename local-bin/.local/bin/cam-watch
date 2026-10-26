@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Notif kalau ada proses yang buka kamera
+
+IGNORE_RE='^(wireplumber|pipewire)$'   # hapus kalau mau ikut dipantau
+declare -A seen
+
+while true; do
+    declare -A now=()
+
+    for dev in /dev/video*; do
+        [ -e "$dev" ] || continue
+        for pid in $(fuser "$dev" 2>/dev/null); do
+            name=$(ps -p "$pid" -o comm= 2>/dev/null) || continue
+            [[ "$name" =~ $IGNORE_RE ]] && continue
+            key="$pid:$dev"
+            now[$key]="$name"
+
+            if [[ -z "${seen[$key]}" ]]; then
+                notify-send -u critical -a "Camera Watch" -i camera-web \
+                    "📷 Kamera dipakai" "$name (PID $pid) membuka $dev"
+                seen[$key]="$name"
+            fi
+        done
+    done
+
+    # notif saat kamera dilepas
+    for key in "${!seen[@]}"; do
+        if [[ -z "${now[$key]}" ]]; then
+            notify-send -u low -a "Camera Watch" -i camera-web \
+                "Kamera dilepas" "${seen[$key]} berhenti memakai kamera"
+            unset "seen[$key]"
+        fi
+    done
+
+    unset now
+    sleep 1
+done

@@ -1,0 +1,260 @@
+@import url("colors.default.css");
+@import url("colors.css");
+@import url("power-mode.css");
+
+* {
+    font-family: Lexend, "JetBrainsMono NFP";
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* ── Control Center ─────────────────────────────── */
+.control-center {
+    background: alpha(@surface, 0.78);
+    border-radius: 16px;
+    border: 2px solid alpha(@primary, 0.40);
+    padding: 8px;
+    color: @on_surface;
+}
+
+/* ── Title bar ──────────────────────────────────── */
+.widget-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: @on_surface;
+    padding: 8px 12px 4px;
+}
+
+.widget-title > button {
+    font-size: 10px;
+    font-weight: 600;
+    background: alpha(@surface_container, 0.70);
+    color: @on_surface;
+    border: 1px solid alpha(@on_surface, 0.12);
+    border-radius: 8px;
+    padding: 4px 10px;
+    transition: background 0.2s ease;
+}
+
+.widget-title > button:hover {
+    background: alpha(@surface_container_high, 0.85);
+}
+
+/* ── DND toggle ─────────────────────────────────── */
+.widget-dnd {
+    padding: 4px 12px 8px;
+    color: @on_surface;
+}
+
+.widget-dnd > switch {
+    border-radius: 12px;
+    background: alpha(@surface_container, 0.70);
+    border: 1px solid alpha(@on_surface, 0.12);
+}
+
+.widget-dnd > switch:checked {
+    background: @primary;
+}
+
+.widget-dnd > switch slider {
+    background: @on_primary;
+    border-radius: 10px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+/* ── Buttons grid ───────────────────────────────── */
+.widget-buttons-grid {
+    padding: 4px 8px 8px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: alpha(@surface_container, 0.70);
+    border: 2px solid alpha(@on_surface, 0.12);
+    border-radius: 12px;
+    color: @on_surface;
+    padding: 10px 14px;
+    min-width: 80px;
+    font-size: 10px;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: alpha(@surface_container_high, 0.85);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.active,
+.widget-buttons-grid > flowbox > flowboxchild > button:checked,
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    background: alpha(@surface_container_high, 0.85);
+    border: 2px solid @primary;
+    color: @primary;
+    box-shadow: 0 0 8px alpha(@primary, 0.5);
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.active:hover,
+.widget-buttons-grid > flowbox > flowboxchild > button:checked:hover,
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked:hover {
+    background: alpha(@primary, 0.15);
+    border: 2px solid @primary;
+    color: @primary;
+    box-shadow: 0 0 12px alpha(@primary, 0.7);
+}
+
+/* ── Volume slider ──────────────────────────────── */
+.widget-volume {
+    padding: 4px 12px 8px;
+    color: @on_surface;
+}
+
+.widget-volume > box > label {
+    font-size: 14px;
+    min-width: 24px;
+}
+
+.widget-volume slider {
+    min-height: 14px;
+}
+
+.widget-volume trough {
+    background: alpha(@surface_container, 0.70);
+    border-radius: 7px;
+    min-height: 6px;
+}
+
+.widget-volume highlight {
+    background: @primary;
+    border-radius: 7px;
+}
+
+/* ── Backlight slider ───────────────────────────── */
+.widget-backlight {
+    padding: 4px 12px 8px;
+    color: @on_surface;
+}
+
+.widget-backlight > box > label {
+    font-size: 14px;
+    min-width: 24px;
+}
+
+.widget-backlight slider {
+    min-height: 14px;
+}
+
+.widget-backlight trough {
+    background: alpha(@surface_container, 0.70);
+    border-radius: 7px;
+    min-height: 6px;
+}
+
+.widget-backlight highlight {
+    background: @secondary;
+    border-radius: 7px;
+}
+
+/* ── MPRIS ──────────────────────────────────────── */
+.widget-mpris {
+    padding: 4px 8px 8px;
+}
+
+.widget-mpris-player {
+    background: alpha(@surface_container, 0.70);
+    border: 1px solid alpha(@on_surface, 0.12);
+    border-radius: 12px;
+    padding: 10px;
+    color: @on_surface;
+}
+
+.widget-mpris-title {
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.widget-mpris-subtitle {
+    font-size: 9px;
+    color: @outline;
+}
+
+.widget-mpris-player > box > button {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: @on_surface;
+    padding: 4px 8px;
+}
+
+.widget-mpris-player > box > button:hover {
+    background: @surface_container_high;
+}
+
+/* ── Notification list ──────────────────────────── */
+.notification-row {
+    margin: 2px 4px;
+}
+
+.notification {
+    background: alpha(@surface_container, 0.75);
+    border: 2px solid alpha(@primary, 0.70);
+    border-radius: 12px;
+    padding: 10px 12px;
+    color: @on_surface;
+    transition: background 0.15s ease;
+}
+
+.notification.critical {
+    border-color: @error;
+}
+
+.notification:hover {
+    background: alpha(@surface_container_high, 0.85);
+}
+
+.notification-content {
+    padding: 4px 0;
+}
+
+.notification-default-action {
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+}
+
+.close-button {
+    background: alpha(@error, 0.20);
+    border: none;
+    border-radius: 8px;
+    color: @error;
+    padding: 2px 6px;
+    font-size: 9px;
+}
+
+.close-button:hover {
+    background: @error;
+    color: @on_error;
+}
+
+/* ── Notification popup (overlay) ───────────────── */
+.floating-notifications {
+    padding: 6px;
+}
+
+.notification-window {
+    background: transparent;
+}
+
+.notification-window .notification {
+    border: 2px solid alpha(@primary, 0.70);
+    box-shadow: 0 4px 16px alpha(black, 0.35);
+}
+
+.notification-window .notification.critical {
+    border-color: @error;
+}
+
+/* ── Empty state ────────────────────────────────── */
+.notifications-group-headers label,
+.control-center-list-placeholder {
+    color: @outline;
+    font-size: 10px;
+}

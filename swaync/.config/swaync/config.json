@@ -1,0 +1,93 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "notification-margin-top": 47,
+  "notification-margin-right": 10,
+  "control-center-positionX": "right",
+  "control-center-positionY": "top",
+  "control-center-margin-top": 47,
+  "control-center-margin-bottom": 0,
+  "control-center-margin-right": 10,
+  "control-center-margin-left": 0,
+  "control-center-width": 380,
+  "control-center-height": 600,
+  "fit-to-screen": false,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "timeout": 5,
+  "timeout-low": 2,
+  "timeout-critical": 0,
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "layer": "overlay",
+  "layer-shell": true,
+  "widgets": [
+    "title",
+    "dnd",
+    "buttons-grid",
+    "volume",
+    "backlight",
+    "mpris",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notification Center",
+      "clear-all-button": true,
+      "button-text": "  Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "buttons-grid": {
+      "buttons-per-row": 3,
+      "actions": [
+        {
+          "label": "󰤨  WiFi",
+          "command": "sh -c 'swaync-client -cp && nm-connection-editor'"
+        },
+        {
+          "label": "󰂯  Bluetooth",
+          "command": "sh -c 'swaync-client -cp && blueman-manager'"
+        },
+        {
+          "label": "󰾅  Power Mode",
+          "command": "sh -c ~/.config/waybar/scripts/power-profile.sh"
+        },
+        {
+          "label": "󰅶  Caffeine",
+          "type": "toggle",
+          "active": false,
+          "command": "sh -c ~/.config/waybar/scripts/caffeine.sh",
+          "update-command": "sh -c 'pgrep -x hypridle >/dev/null && echo false || echo true'"
+        },
+        {
+          "label": "󰌾  Lock",
+          "command": "hyprlock"
+        },
+        {
+          "label": "⏻  Power",
+          "command": "sh -c ~/.config/waybar/scripts/power-menu.sh"
+        }
+      ]
+    },
+    "volume": {
+      "label": "󰕾",
+      "expand-button-label": "󰕾",
+      "show-per-app": false
+    },
+    "backlight": {
+      "label": "󰃟",
+      "device": "intel_backlight",
+      "min": 5
+    },
+    "mpris": {
+      "image-size": 64,
+      "image-radius": 8
+    },
+    "notifications": {}
+  }
+}

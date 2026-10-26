@@ -1,0 +1,54 @@
+# ===== File generated / state (dibuat otomatis oleh matugen & script; jangan di-commit) =====
+# Fallback warna yang DI-COMMIT: colors.default.css (tidak kena aturan di bawah)
+colors.css
+generated/
+power-mode.css
+hyprpaper.conf
+
+# ===== Gambar: jangan commit koleksi wallpaper =====
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+# ...kecuali screenshot untuk README
+!docs/screenshots/
+!docs/screenshots/*
+
+# ===== Backup & sisa migrasi =====
+*.bak
+*.bak-*
+*.old
+*.orig
+*.rej
+*.pre-stow
+.dotfiles-backup/
+
+# ===== Log & cache =====
+*.log
+cache/
+.cache/
+
+# ===== Jaring pengaman: jangan sampai rahasia ikut ter-commit =====
+.env
+.env.*
+*.pem
+*.key
+*.p12
+id_rsa*
+id_ed25519*
+*secret*
+*token*
+
+# ===== Editor / OS =====
+*~
+*.swp
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ===== Catatan/aturan untuk asisten AI (berisi konteks pribadi, tidak untuk repo publik) =====
+.clinerules/
+.clinerules
+.cline/

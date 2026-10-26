@@ -1,0 +1,114 @@
+@import url("colors.default.css");
+@import url("generated/colors.css");
+
+* {
+    min-height: 0;
+    min-width: 0;
+    font-family: Lexend, "JetBrainsMono NFP";
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* Waybar utama */
+window#waybar {
+    background: rgba(0, 0, 0, 0.25);
+    color: @on_surface;
+    transition: background 0.3s ease;
+}
+
+/* Workspaces: satu pill, tombol di dalamnya */
+#workspaces {
+    padding: 0.2rem 0.3rem;
+    margin: 0.4rem 0.25rem;
+    border-radius: 10px;
+    background: rgba(20, 20, 20, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+#workspaces button {
+    padding: 0 0.6rem;
+    margin: 0 0.1rem;
+    min-width: 16px;
+    border-radius: 7px;
+    background: transparent;
+    background-image: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    color: @outline;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#workspaces button:hover {
+    background: alpha(@on_surface, 0.12);
+    color: @on_surface;
+}
+
+#workspaces button.active {
+    background: @primary;
+    color: @on_primary;
+    padding: 0 0.9rem;
+}
+
+#workspaces button.urgent {
+    background: @error;
+    color: @on_error;
+}
+
+/* Semua module */
+#clock,
+#tray,
+#battery,
+#custom-notification {
+    padding: 0.3rem 0.7rem;
+    margin: 0.4rem 0.25rem;
+    border-radius: 10px;
+    background: rgba(20, 20, 20, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: @on_surface;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover module */
+#clock:hover,
+#tray:hover,
+#battery:hover,
+#custom-notification:hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Aksen warna */
+#battery.warning:not(.charging)  { color: #ffd166; }
+#battery.critical:not(.charging) { color: #ff6b6b; }
+
+#custom-notification          { color: @primary; }
+#custom-notification.dnd      { color: @outline; }
+
+/* Area kosong waybar (spacer, tanpa aksi klik) */
+#custom-empty,
+#custom-empty:hover {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Tooltip */
+tooltip {
+    background: rgba(15, 15, 15, 0.92);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 10px;
+}
+
+tooltip label {
+    font-family: "JetBrainsMono NFP", monospace;
+    font-size: 10px;
+}
+
+/* Tray menu */
+#tray menu {
+    background: rgba(15, 15, 15, 0.92);
+    color: #ffffff;
+}

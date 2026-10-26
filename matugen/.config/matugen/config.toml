@@ -1,0 +1,26 @@
+[config]
+reload_apps = false   # kitty reload kita handle manual lewat post_hook biar bisa target socket
+
+[templates.kitty]
+input_path = "~/.config/matugen/templates/kitty-colors.conf"
+output_path = "~/.config/kitty/colors-matugen.conf"
+post_hook = "kitty @ --to unix:/tmp/kitty-socket set-colors -a ~/.config/kitty/colors-matugen.conf 2>/dev/null || true"
+
+[templates.fastfetch]
+input_path = "~/.config/matugen/templates/fastfetch-config.jsonc"
+output_path = "~/.config/fastfetch/config.jsonc"
+
+[templates.waybar]
+input_path = "~/.config/matugen/templates/waybar-colors.css"
+output_path = "~/.config/waybar/generated/colors.css"
+post_hook = "pkill -SIGUSR2 waybar 2>/dev/null || true"
+
+[templates.swaync]
+input_path = "~/.config/matugen/templates/waybar-colors.css"
+output_path = "~/.config/swaync/colors.css"
+post_hook = "swaync-client -rs 2>/dev/null || true"
+
+[templates.swayosd]
+input_path = "~/.config/matugen/templates/waybar-colors.css"
+output_path = "~/.config/swayosd/colors.css"
+post_hook = "pkill swayosd-server; setsid swayosd-server >/dev/null 2>&1 &"

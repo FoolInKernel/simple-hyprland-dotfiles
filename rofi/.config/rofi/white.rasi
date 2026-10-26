@@ -1,0 +1,18 @@
+* {
+    background: #ffffff;
+    foreground: #111111;
+    selected: #111111;
+    selected-foreground: #ffffff;
+    border: #777777;
+    font: "Lexend 11";
+}
+window { width: 620px; border: 2px; border-color: @border; border-radius: 12px; background-color: @background; padding: 18px; }
+mainbox { background-color: transparent; children: [ inputbar, listview ]; spacing: 12px; }
+inputbar { background-color: #f2f2f2; text-color: @foreground; border: 1px; border-color: #cccccc; border-radius: 9px; padding: 10px; children: [ prompt, entry ]; }
+prompt { background-color: transparent; text-color: @foreground; padding: 0px 8px 0px 0px; }
+entry { background-color: transparent; text-color: @foreground; placeholder: "Search..."; placeholder-color: #777777; }
+listview { background-color: transparent; columns: 1; lines: 8; spacing: 6px; fixed-height: true; scrollbar: false; }
+element { background-color: transparent; text-color: @foreground; border-radius: 8px; padding: 8px; }
+element selected { background-color: @selected; text-color: @selected-foreground; }
+element-icon { size: 24px; background-color: transparent; }
+element-text { background-color: transparent; text-color: inherit; }
